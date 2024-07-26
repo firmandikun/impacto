@@ -17,3 +17,5 @@ export interface CategoryPrices {
   ATK: Price[];
   FURNITURE: Price[];
 };
+
+export type Category = 'All' | 'Office Equipment' | 'Furniture';

@@ -1,4 +1,4 @@
-import { CategoryPrices, CategoryProducts } from "../types";
+import { Category, CategoryPrices, CategoryProducts } from "../types";
 
 export const productList: CategoryProducts[] = [
   {
@@ -33,3 +33,5 @@ export const priceList: CategoryPrices[] = [
     ],
   },
 ];
+
+export const categories: Category[] = ['All', 'Office Equipment', 'Furniture'];

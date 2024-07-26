@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "@/components/button";
 import Card from "@/components/card";
 import { Product } from "../../public/types";
-import { priceList, productList } from "../../public/dummy";
+import { categories, priceList, productList } from "../../public/dummy";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,28 +42,17 @@ export default function Home() {
       <div className="min-h-screen bg-gray-100 p-8">
         <h1 className="text-3xl font-bold mb-8 text-center">Catalogue</h1>
         <div className="flex justify-center mb-8 space-x-4">
-        <Button
-          type="category"
-          category="All"
-          label="All"
-          isSelected={category === 'All'}
-          onClick={() => setCategory('All')}
-        />
-        <Button
-          type="category"
-          category="Office Equipment"
-          label="Office Equipment"
-          isSelected={category === 'Office Equipment'}
-          onClick={() => setCategory('Office Equipment')}
-        />
-        <Button
-          type="category"
-          category="Furniture"
-          label="Furniture"
-          isSelected={category === 'Furniture'}
-          onClick={() => setCategory('Furniture')}
-        />
-        </div>
+        {categories.map((item) => (
+          <Button
+            key={item}
+            type="category"
+            category={item}
+            label={item}
+            isSelected={category === item}
+            onClick={() => setCategory(item)}
+          />
+        ))}
+      </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <Card
